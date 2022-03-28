@@ -210,7 +210,7 @@ function App() {
 
   const onClickWithdraw = (e) => {
     e.preventDefault()
-    console.log("unstaking...........", withdrawInput);
+    // console.log("unstaking...........", withdrawInput);
   }
 
   const onClickGetAddress = async (e) => {
@@ -220,8 +220,8 @@ function App() {
 
     e.preventDefault();
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const customProvider = provider.getProvider();
-    const BRTContractInstance = new Contract(BRTTokenAddress, BRTTokenAbi, customProvider);
+    const getProvider = provider.getProvider();
+    const BRTContractInstance = new Contract(BRTTokenAddress, BRTTokenAbi, getProvider);
     const getStakeAddress = await BRTContractInstance.getStakeAddress(addressInput);
 
     setAddressInput(getStakeAddress());
