@@ -39,7 +39,7 @@ const MyStake = ({
               onChange = {onChangeInput}
               id = "stake"
             />
-            <button type='submit' className={clsx({[Styles.stake_btn]: true, [Styles.btn_diabled] connected})}
+            <button type='submit' className={clsx({[Styles.stake_btn]: true, [Styles.btn_diabled]: connected})}
               disabled = {!connected}
             >Stake</button>
           </form>
