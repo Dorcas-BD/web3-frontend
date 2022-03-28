@@ -6,9 +6,11 @@ import Styles from './MyStake.module.css'
 const MyStake = ({
   withdrawInput, 
   stakeInput, 
+  addressInput,
   onChangeInput, 
   onClickStake, 
   onClickWithdraw,
+  onClickGetAddress,
   rewardAmount,
   stakeAmount,
   connected
