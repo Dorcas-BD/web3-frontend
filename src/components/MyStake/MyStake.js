@@ -40,7 +40,7 @@ const MyStake = ({
               id = "stake"
             />
             <button type='submit' className={clsx({[Styles.stake_btn]: true, [Styles.btn_diabled]: !connected})}
-              disabled = {!connected}
+              disabled = {connected}
             >Stake</button>
           </form>
 
@@ -54,19 +54,19 @@ const MyStake = ({
               id = "unstake"
             />
             <button type="submit"
-            className={clsx({[Styles.unstake_btn]: true, [Styles.btn_diabled]: !connected})}
+            className={clsx({[Styles.unstake_btn]: true, [Styles.btn_diabled]: connected})}
             disabled = {!connected}
             >Unstake</button>
         </form>
         
           <form onSubmit = {onClickGetAddress} className={Styles.form} >
             <input 
-              type = "number" 
+              type = "text" 
               placeholder="Get address" 
               className={Styles.input}
               value = {addressInput}
               onChange = {onChangeInput}
-              id = "unstake"
+              id = "address"
             />
             <button type="submit"
             className={clsx({[Styles.address_btn]: true, [Styles.btn_diabled]: connected})}
@@ -79,3 +79,4 @@ const MyStake = ({
 }
 
 export default MyStake
+
