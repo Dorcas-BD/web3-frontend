@@ -79,4 +79,3 @@ const MyStake = ({
 }
 
 export default MyStake
-
