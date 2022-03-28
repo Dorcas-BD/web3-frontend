@@ -71,7 +71,7 @@ const MyStake = ({
             <button type="submit"
             className={clsx({[Styles.address_btn]: true, [Styles.btn_diabled]: connected})}
             disabled = {connected}
-            >Get Address</button>
+            >Get Stake</button>
           </form>
         </div>
     </div>

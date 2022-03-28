@@ -219,8 +219,8 @@ function App() {
     }
 
     e.preventDefault();
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const getProvider = provider.getProvider();
+    const addressProvider = new ethers.providers.Web3Provider(window.ethereum);
+    const getProvider = addressProvider.getProvider();
     const BRTContractInstance = new Contract(BRTTokenAddress, BRTTokenAbi, getProvider);
     const getStakeAddress = await BRTContractInstance.getStakeAddress(addressInput);
 
