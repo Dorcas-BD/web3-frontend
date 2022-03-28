@@ -32,6 +32,7 @@ function App() {
 
   // the value of token the user wants to withdraw
   const [withdrawInput, setWithdrawInput] = useState("");
+  const [addressInput, setAddressInput] = useState("");
 
   // all stake history data displayed on the history table
   const [stateHistory, setStakeHistory] = useState([]);
@@ -176,6 +177,10 @@ function App() {
       case "unstake":
         setWithdrawInput(target.value);
         break;
+      
+      case "address":
+        setAddressInput(target.value);
+        break;
     
       default:
         break;
@@ -208,6 +213,21 @@ function App() {
     console.log("unstaking...........", withdrawInput);
   }
 
+  const onClickGetAddress = async (e) => {
+    if (addressInput == "") {
+      return alert("Address cannot be empty")
+    }
+
+    e.preventDefault();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const customProvider = provider.getProvider();
+    const BRTContractInstance = new Contract(BRTTokenAddress, BRTTokenAbi, customProvider);
+    const getStakeAddress = await BRTContractInstance.getStakeAddress(addressInput);
+
+    setAddressInput(getStakeAddress());
+
+  }
+
   
   return (
     <div className="App">
@@ -223,6 +243,7 @@ function App() {
           onChangeInput = {onChangeInput}
           onClickStake = {onClickStake}
           onClickWithdraw = {onClickWithdraw}
+          onClickGetAddress = {onClickGetAddress}
           stakeAmount = {stakeAmount}
           rewardAmount = {rewardAmount}
           connected = {connected}

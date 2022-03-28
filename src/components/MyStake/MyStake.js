@@ -57,12 +57,12 @@ const MyStake = ({
             >Unstake</button>
         </form>
         
-          <form onSubmit = {onClickWithdraw} className={Styles.form} >
+          <form onSubmit = {onClickGetAddress} className={Styles.form} >
             <input 
               type = "number" 
               placeholder="Get address" 
               className={Styles.input}
-              value = {withdrawInput}
+              value = {addressInput}
               onChange = {onChangeInput}
               id = "unstake"
             />
