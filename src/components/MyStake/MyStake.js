@@ -55,6 +55,21 @@ const MyStake = ({
             className={clsx({[Styles.unstake_btn]: true, [Styles.btn_diabled]: !connected})}
             disabled = {!connected}
             >Unstake</button>
+        </form>
+        
+          <form onSubmit = {onClickWithdraw} className={Styles.form} >
+            <input 
+              type = "number" 
+              placeholder="Get address" 
+              className={Styles.input}
+              value = {withdrawInput}
+              onChange = {onChangeInput}
+              id = "unstake"
+            />
+            <button type="submit"
+            className={clsx({[Styles.address_btn]: true, [Styles.btn_diabled]: connected})}
+            disabled = {connected}
+            >Get Address</button>
           </form>
         </div>
     </div>
